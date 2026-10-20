@@ -128,7 +128,7 @@
 
         .nav-link {
             position: relative;
-            padding: 8px 18px;
+            height: 34px; padding: 0 16px; box-sizing: border-box; line-height: 1;
             margin: 0 4px;
             color: var(--text-main);
             text-decoration: none;
@@ -171,9 +171,9 @@
             color: #bae6fd;
         }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .dropdown { position: relative; display: inline-flex; align-items: center; height: 34px; }
         .dropdown-menu {
-            position: absolute; top: calc(100% + 15px); left: 0; transform: translateY(15px) scale(0.95); opacity: 0;
+            position: absolute; top: calc(100% + 10px); left: 0; transform: translateY(10px) scale(0.95); opacity: 0;
             visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100;
             transform-origin: top left;
         }
@@ -194,26 +194,32 @@
         [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
 
         .theme-toggle-pill {
-            width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative;
-            cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px;
+            width: 56px; height: 34px; background: var(--bg-secondary); border-radius: 30px; position: relative;
+            cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; flex-shrink: 0; box-sizing: border-box; transition: all 0.3s ease;
             border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill i { font-size: 11px; z-index: 1; line-height: 1; }
         .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
+        .theme-toggle-pill .fa-moon { color: #94a3b8; }
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white;
+            position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; background: white;
             border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--border-color); }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(22px); background: #1e293b; border-color: var(--border-color); }
 
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 800; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 56px; height: 34px; background: var(--bg-secondary); border-radius: 30px;
+            border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 800; letter-spacing: 0.5px; cursor: pointer; color: var(--text-main); transition: all 0.3s ease; flex-shrink: 0; box-sizing: border-box; line-height: 1; padding: 0;
         }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+        .nav-cta-btn {
+            height: 34px; padding: 0 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+            border-radius: 30px; display: inline-flex; align-items: center; justify-content: center;
+            white-space: nowrap; text-decoration: none; flex-shrink: 0; box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; line-height: 1;
+        }
 
         .btn {
             padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
@@ -269,8 +275,8 @@
             <!-- Brand Logo -->
             <div class="flex items-center flex-shrink-0">
                 <a href="index.html"
-                    class="inline-flex items-center gap-2 text-2xl font-black tracking-wider"
-                    style="color: var(--text-main) !important; text-decoration: none;">
+                    class="inline-flex items-center gap-2.5 text-2xl font-black tracking-wider leading-none"
+                    style="color: var(--text-main) !important; text-decoration: none; height: 34px;">
                     <i class="fas fa-fish" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     OceanCatch
                 </a>
@@ -305,15 +311,16 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 
-                <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
+                <div class="w-px h-5 bg-[var(--border-color)] mx-1 shrink-0 self-center"></div>
                 
-                <a href="register.html" class="btn btn-solid !py-1.5 !px-5 !text-[11px]">Book Now</a>
+                <a href="#" class="nav-cta-btn btn-solid">Book Now</a>
             </div>
 
             <!-- Mobile Hamburger Button -->
             <div class="xl:hidden flex items-center justify-end gap-4">
                 <button id="mobile-btn"
-                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                    class="w-[34px] h-[34px] flex items-center justify-center text-xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]"
+                    aria-label="Toggle navigation menu">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -378,9 +385,9 @@
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-full max-h-[800px]">
             
             <div class="flex flex-col items-center lg:items-start justify-center text-center lg:text-left h-full">
-                <span class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-extrabold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
-                    <i class="fas fa-water mr-2"></i> 100% Fresh Daily Catch
-                </span>
+
+
+
 
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
                     Ocean Fresh Seafood, <br>
@@ -476,7 +483,7 @@
                     <!-- Product 1 -->
                     <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-52 overflow-hidden bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600" alt="Salmon Fillet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (18).jpg" alt="Salmon Fillet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <span class="absolute top-3 left-3 bg-[var(--accent-color)] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Best Seller</span>
                         </div>
                         <div class="p-6">
@@ -491,7 +498,7 @@
                     <!-- Product 2 -->
                     <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-52 overflow-hidden bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&q=80&w=600" alt="Tiger Prawns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (16).jpg" alt="Tiger Prawns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Wild Caught</span>
                         </div>
                         <div class="p-6">
@@ -506,7 +513,7 @@
                     <!-- Product 3 -->
                     <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-52 overflow-hidden bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=600" alt="Red Snapper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (5).jpg" alt="Red Snapper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Whole Fish</span>
                         </div>
                         <div class="p-6">
@@ -521,7 +528,7 @@
                     <!-- Product 4 -->
                     <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-52 overflow-hidden bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&q=80&w=600" alt="Sea Crabs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (8).jpg" alt="Sea Crabs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <span class="absolute top-3 left-3 bg-purple-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Special</span>
                         </div>
                         <div class="p-6">
@@ -574,7 +581,7 @@
                     <!-- Review 1 -->
                     <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8">
                         <div class="absolute -top-10 left-8 w-16 h-16 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md bg-gray-300">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Client" class="w-full h-full object-cover">
+                            <img src="image/about3.jpg" alt="Client" class="w-full h-full object-cover">
                         </div>
                         <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"The salmon fillets were unbelievably fresh with zero fishy odor. Cleaning and delivery instructions were followed precisely!"</p>
@@ -586,7 +593,7 @@
                     <!-- Review 2 -->
                     <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8">
                         <div class="absolute -top-10 left-8 w-16 h-16 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md bg-gray-300">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Client" class="w-full h-full object-cover">
+                            <img src="image/about4.jpg" alt="Client" class="w-full h-full object-cover">
                         </div>
                         <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"Ordering tiger prawns for weekend family dinners has never been easier. Packed securely in ice and delivered right on time."</p>
@@ -598,7 +605,7 @@
                     <!-- Review 3 -->
                     <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8">
                         <div class="absolute -top-10 left-8 w-16 h-16 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md bg-gray-300">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Client" class="w-full h-full object-cover">
+                            <img src="image/about5.jpg" alt="Client" class="w-full h-full object-cover">
                         </div>
                         <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                         <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"Absolute game changer for seafood lovers. The quality rivals high-end seaside restaurants directly from home."</p>
@@ -606,6 +613,63 @@
                             <h4 class="font-bold text-[var(--text-main)] text-sm uppercase tracking-wider">Amanda Vance</h4>
                             <span class="text-[var(--accent-color)] text-xs font-bold">Culinary Enthusiast</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FRESHNESS METRICS & PIER INTAKE -->
+        <section class="w-full py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="text-center mb-14 max-w-2xl mx-auto">
+                    <span class="text-[var(--accent-color)] text-xs font-bold uppercase tracking-widest mb-3 block">Ocean To Kitchen Protocol</span>
+                    <h2 class="text-3xl md:text-5xl font-black capitalize tracking-tight text-[var(--text-main)] mb-4">Live Dock Freshness Standards</h2>
+                    <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-4 rounded-full"></div>
+                    <p class="text-[var(--text-muted)] text-base md:text-lg">Every morning our fleet docks with the dawn tide. Here is how we guarantee uncompromising ocean freshness.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-[var(--bg-card)] p-6 md:p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)] text-xl mb-5">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <span class="text-[var(--accent-color)] font-mono text-2xl font-black block mb-1">04:30 AM</span>
+                        <h3 class="text-[var(--text-main)] font-black text-base mb-2">Dawn Trawler Docking</h3>
+                        <p class="text-[var(--text-muted)] text-xs leading-relaxed">Direct harbor intake offloaded immediately onto flaked ice beds.</p>
+                    </div>
+                    <div class="bg-[var(--bg-card)] p-6 md:p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)] text-xl mb-5">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <span class="text-[var(--accent-color)] font-mono text-2xl font-black block mb-1">32°F - 34°F</span>
+                        <h3 class="text-[var(--text-main)] font-black text-base mb-2">Ice-Slurry Preservation</h3>
+                        <p class="text-[var(--text-muted)] text-xs leading-relaxed">Continuous thermal management without chemical additives or glaze.</p>
+                    </div>
+                    <div class="bg-[var(--bg-card)] p-6 md:p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)] text-xl mb-5">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <span class="text-[var(--accent-color)] font-mono text-2xl font-black block mb-1">&lt; 3 Hours</span>
+                        <h3 class="text-[var(--text-main)] font-black text-base mb-2">Pier to Fillet Window</h3>
+                        <p class="text-[var(--text-muted)] text-xs leading-relaxed">Hand-inspected, cleaned, and custom-portioned within hours of landing.</p>
+                    </div>
+                    <div class="bg-[var(--bg-card)] p-6 md:p-8 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)] text-xl mb-5">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <span class="text-[var(--accent-color)] font-mono text-2xl font-black block mb-1">100% Trace</span>
+                        <h3 class="text-[var(--text-main)] font-black text-base mb-2">Vessel Tag Tracking</h3>
+                        <p class="text-[var(--text-muted)] text-xs leading-relaxed">Scan your package QR to view boat name, harvest zone, and catch time.</p>
+                    </div>
+                </div>
+                <div class="bg-[var(--bg-card)] rounded-2xl p-5 border border-[var(--border-color)] flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="text-[var(--text-main)] font-bold text-sm">Today's Pier Operations: Active</span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6 text-xs text-[var(--text-muted)] font-medium">
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Santa Monica Pier Line Open</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-500"></i> Next Dispatch: 11:30 AM</span>
+                        <a href="services.html" class="text-[var(--accent-color)] font-bold hover:underline">Learn About Our Fleet &rarr;</a>
                     </div>
                 </div>
             </div>

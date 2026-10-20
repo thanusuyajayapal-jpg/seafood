@@ -130,7 +130,7 @@
 
         .nav-link {
             position: relative;
-            padding: 8px 18px;
+            height: 34px; padding: 0 16px; box-sizing: border-box; line-height: 1;
             margin: 0 4px;
             color: var(--text-main);
             text-decoration: none;
@@ -173,9 +173,9 @@
             color: #bae6fd;
         }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .dropdown { position: relative; display: inline-flex; align-items: center; height: 34px; }
         .dropdown-menu {
-            position: absolute; top: calc(100% + 15px); left: 0; transform: translateY(15px) scale(0.95); opacity: 0;
+            position: absolute; top: calc(100% + 10px); left: 0; transform: translateY(10px) scale(0.95); opacity: 0;
             visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100;
             transform-origin: top left;
         }
@@ -196,26 +196,32 @@
         [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
 
         .theme-toggle-pill {
-            width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative;
-            cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px;
+            width: 56px; height: 34px; background: var(--bg-secondary); border-radius: 30px; position: relative;
+            cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; flex-shrink: 0; box-sizing: border-box; transition: all 0.3s ease;
             border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill i { font-size: 11px; z-index: 1; line-height: 1; }
         .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
+        .theme-toggle-pill .fa-moon { color: #94a3b8; }
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white;
+            position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; background: white;
             border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--border-color); }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(22px); background: #1e293b; border-color: var(--border-color); }
 
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 800; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 56px; height: 34px; background: var(--bg-secondary); border-radius: 30px;
+            border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 800; letter-spacing: 0.5px; cursor: pointer; color: var(--text-main); transition: all 0.3s ease; flex-shrink: 0; box-sizing: border-box; line-height: 1; padding: 0;
         }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+        .nav-cta-btn {
+            height: 34px; padding: 0 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+            border-radius: 30px; display: inline-flex; align-items: center; justify-content: center;
+            white-space: nowrap; text-decoration: none; flex-shrink: 0; box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; line-height: 1;
+        }
 
         .btn {
             padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
@@ -308,8 +314,8 @@
             <!-- Brand Logo -->
             <div class="flex items-center flex-shrink-0">
                 <a href="index.html"
-                    class="inline-flex items-center gap-2 text-2xl font-black tracking-wider"
-                    style="color: var(--text-main) !important; text-decoration: none;">
+                    class="inline-flex items-center gap-2.5 text-2xl font-black tracking-wider leading-none"
+                    style="color: var(--text-main) !important; text-decoration: none; height: 34px;">
                     <i class="fas fa-fish" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     OceanCatch
                 </a>
@@ -342,15 +348,16 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 
-                <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
+                <div class="w-px h-5 bg-[var(--border-color)] mx-1 shrink-0 self-center"></div>
                 
-                <a href="register.html" class="btn btn-solid !py-1.5 !px-5 !text-[11px]">Book Now</a>
+                <a href="#" class="nav-cta-btn btn-solid">Book Now</a>
             </div>
 
             <!-- Mobile Hamburger Button -->
             <div class="xl:hidden flex items-center justify-end gap-4">
                 <button id="mobile-btn"
-                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                    class="w-[34px] h-[34px] flex items-center justify-center text-xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]"
+                    aria-label="Toggle navigation menu">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -408,12 +415,12 @@
     <!-- === HERO BANNER SECTION 2 (Center Aligned for Seafood Market) === -->
     <section class="hero2-center">
         <div class="hero2-bg">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&q=80&w=1600" alt="Harbor Seafood Display">
+            <img src="image/fishes (2).jpg" alt="Harbor Seafood Display">
         </div>
         <div class="hero2-content">
-            <span class="text-[var(--accent-color)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-extrabold uppercase tracking-[0.15em] mb-4 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm">
-                <i class="fas fa-anchor mr-2"></i> Harbor Direct Selections
-            </span>
+
+
+
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-6 leading-tight">
                 Pristine Ocean Catches, <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[#bae6fd]">Crafted For Your Table.</span>
@@ -445,7 +452,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <a href="services.html" class="bg-[var(--bg-card)] rounded-3xl p-6 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all group block text-left">
                         <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
-                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=600" alt="Sea Fish" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (1).jpg" alt="Sea Fish" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 uppercase">Sea Fish</h3>
                         <p class="text-[var(--text-muted)] text-sm mb-4">Wild ocean catches straight from deep sea harbors.</p>
@@ -454,7 +461,7 @@
 
                     <a href="services.html" class="bg-[var(--bg-card)] rounded-3xl p-6 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all group block text-left">
                         <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
-                            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=600" alt="Fresh Water Catch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (4).jpg" alt="Fresh Water Catch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 uppercase">Fresh Water</h3>
                         <p class="text-[var(--text-muted)] text-sm mb-4">Pristine river catches sourced from local streams.</p>
@@ -463,7 +470,7 @@
 
                     <a href="services.html" class="bg-[var(--bg-card)] rounded-3xl p-6 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all group block text-left">
                         <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600" alt="Prawns & Crabs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (8).jpg" alt="Prawns & Crabs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 uppercase">Prawns & Crabs</h3>
                         <p class="text-[var(--text-muted)] text-sm mb-4">Juicy shellfishes available live or freshly cleaned.</p>
@@ -472,7 +479,7 @@
 
                     <a href="services.html" class="bg-[var(--bg-card)] rounded-3xl p-6 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all group block text-left">
                         <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Exotic Delicacies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="image/fishes (16).jpg" alt="Exotic Delicacies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 uppercase">Exotic Cuts</h3>
                         <p class="text-[var(--text-muted)] text-sm mb-4">Chef-curated fillets, steaks, and marinated seafood boxes.</p>
@@ -492,7 +499,7 @@
                     <a href="services.html" class="btn btn-solid !py-3 !px-8 text-sm">Learn About Our Process</a>
                 </div>
                 <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-[16/10]">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800" alt="Cold Chain Logistics" class="w-full h-full object-cover">
+                    <img src="image/author (3).jpg" alt="Cold Chain Logistics" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -550,7 +557,7 @@
                         "OceanCatch has completely transformed our weekly meal prep. The fish arrives impeccably cleaned, vacuum-sealed, and fresher than anything I've ever picked up at traditional supermarkets. Absolutely top tier!"
                     </p>
                     <div class="flex items-center justify-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=200" alt="Customer" class="w-14 h-14 rounded-full object-cover border-2 border-[var(--accent-color)]">
+                        <img src="image/about5.jpg" alt="Customer" class="w-14 h-14 rounded-full object-cover border-2 border-[var(--accent-color)]">
                         <div class="text-left">
                             <h4 class="font-bold text-[var(--text-main)] uppercase text-sm">Jessica Miller</h4>
                             <span class="text-[var(--text-muted)] text-xs font-semibold">Loyal Subscriber since 2024</span>
@@ -570,7 +577,83 @@
                     <a href="blog.html" class="btn btn-solid !py-3 !px-8 text-sm">Read Our Articles</a>
                 </div>
                 <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-[16/10]">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800" alt="Seafood Recipes Blog" class="w-full h-full object-cover">
+                    <img src="image/fishes (11).jpg" alt="Seafood Recipes Blog" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Seasonal Catch Calendar & Availability Chart -->
+        <section class="w-full py-20 bg-[var(--bg-secondary)] border-t border-[var(--border-color)]">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="text-center mb-14 max-w-2xl mx-auto">
+                    <span class="text-[var(--accent-color)] text-xs font-bold uppercase tracking-widest mb-3 block">Wild Harvest Tides</span>
+                    <h2 class="text-3xl md:text-5xl font-black capitalize tracking-tight text-[var(--text-main)] mb-4">Seasonal Availability Calendar</h2>
+                    <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-4 rounded-full"></div>
+                    <p class="text-[var(--text-muted)] text-base md:text-lg">Follow the natural oceanic migratory rhythms to order seafood at its absolute peak flavor and nutritional density.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                    <!-- Season 1 -->
+                    <div class="bg-[var(--bg-card)] p-6 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] transition-all">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[var(--accent-color)] font-black text-xs uppercase tracking-wider bg-[var(--bg-secondary)] px-3 py-1 rounded-full">Spring Tide</span>
+                            <span class="text-emerald-500 text-xs font-bold flex items-center gap-1"><i class="fas fa-circle text-[8px]"></i> In Peak Season</span>
+                        </div>
+                        <h3 class="text-[var(--text-main)] font-black text-lg mb-2">Wild King Salmon</h3>
+                        <p class="text-[var(--text-muted)] text-xs mb-4 leading-relaxed">High fat marbling, silky texture, rich in natural oils. Harvested in Pacific Northwest waters.</p>
+                        <div class="pt-3 border-t border-[var(--border-color)] flex justify-between items-center text-xs text-[var(--text-muted)]">
+                            <span>Harvest Window:</span>
+                            <strong class="text-[var(--text-main)]">Mar - Jun</strong>
+                        </div>
+                    </div>
+                    <!-- Season 2 -->
+                    <div class="bg-[var(--bg-card)] p-6 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] transition-all">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[var(--accent-color)] font-black text-xs uppercase tracking-wider bg-[var(--bg-secondary)] px-3 py-1 rounded-full">Summer Catch</span>
+                            <span class="text-emerald-500 text-xs font-bold flex items-center gap-1"><i class="fas fa-circle text-[8px]"></i> Peak Quota</span>
+                        </div>
+                        <h3 class="text-[var(--text-main)] font-black text-lg mb-2">Pacific Bluefin Tuna</h3>
+                        <p class="text-[var(--text-muted)] text-xs mb-4 leading-relaxed">Sashimi-grade loin cuts with clean umami finish. Line-caught off offshore currents.</p>
+                        <div class="pt-3 border-t border-[var(--border-color)] flex justify-between items-center text-xs text-[var(--text-muted)]">
+                            <span>Harvest Window:</span>
+                            <strong class="text-[var(--text-main)]">Jul - Sep</strong>
+                        </div>
+                    </div>
+                    <!-- Season 3 -->
+                    <div class="bg-[var(--bg-card)] p-6 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] transition-all">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[var(--accent-color)] font-black text-xs uppercase tracking-wider bg-[var(--bg-secondary)] px-3 py-1 rounded-full">Autumn Depths</span>
+                            <span class="text-sky-500 text-xs font-bold flex items-center gap-1"><i class="fas fa-circle text-[8px]"></i> Pre-Order</span>
+                        </div>
+                        <h3 class="text-[var(--text-main)] font-black text-lg mb-2">Alaskan Halibut</h3>
+                        <p class="text-[var(--text-muted)] text-xs mb-4 leading-relaxed">Firm white flake with subtle sweet flavor. Ideal for high-heat pan roasting and grills.</p>
+                        <div class="pt-3 border-t border-[var(--border-color)] flex justify-between items-center text-xs text-[var(--text-muted)]">
+                            <span>Harvest Window:</span>
+                            <strong class="text-[var(--text-main)]">Sep - Nov</strong>
+                        </div>
+                    </div>
+                    <!-- Season 4 -->
+                    <div class="bg-[var(--bg-card)] p-6 rounded-3xl border border-[var(--border-color)] shadow-sm hover:border-[var(--accent-color)] transition-all">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[var(--accent-color)] font-black text-xs uppercase tracking-wider bg-[var(--bg-secondary)] px-3 py-1 rounded-full">Winter Deep</span>
+                            <span class="text-amber-500 text-xs font-bold flex items-center gap-1"><i class="fas fa-circle text-[8px]"></i> Limited Tonnage</span>
+                        </div>
+                        <h3 class="text-[var(--text-main)] font-black text-lg mb-2">Dungeness Crab & Oysters</h3>
+                        <p class="text-[var(--text-muted)] text-xs mb-4 leading-relaxed">Cold crisp ocean currents yield highest meat fill ratios and deep sweet brine flavor.</p>
+                        <div class="pt-3 border-t border-[var(--border-color)] flex justify-between items-center text-xs text-[var(--text-muted)]">
+                            <span>Harvest Window:</span>
+                            <strong class="text-[var(--text-main)]">Dec - Feb</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[var(--bg-card)] p-5 rounded-2xl border border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-compass text-2xl text-[var(--accent-color)]"></i>
+                        <div>
+                            <h4 class="text-[var(--text-main)] font-bold text-sm">Need Wholesale Catch Forecasting?</h4>
+                            <p class="text-[var(--text-muted)] text-xs">Download our seasonal wholesale projection sheet for culinary chefs and caterers.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline !py-2.5 !px-6 text-xs whitespace-nowrap">Request Catch Schedule</a>
                 </div>
             </div>
         </section>
